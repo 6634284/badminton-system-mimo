@@ -1,0 +1,99 @@
+.home-page {
+  padding: 24px;
+  background: #f5f5f5;
+  min-height: 100vh;
+}
+
+.welcome-section {
+  background: linear-gradient(135deg, #1677ff, #4096ff);
+  border-radius: 20px;
+  padding: 40px 32px;
+  color: #fff;
+  margin-bottom: 24px;
+}
+
+.quick-nav {
+  display: flex; justify-content: space-around; padding: 16rpx 0;
+  .nav-item { display: flex; flex-direction: column; align-items: center; }
+  .nav-icon { font-size: 48rpx; margin-bottom: 8rpx; }
+  .nav-label { font-size: 24rpx; color: #666; }
+}
+
+.welcome-text {
+  font-size: 36px;
+  font-weight: bold;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.welcome-sub {
+  font-size: 26px;
+  opacity: 0.8;
+  display: block;
+}
+
+.section {
+  background: #fff;
+  border-radius: 16px;
+  padding: 24px;
+  margin-bottom: 20px;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.section-title {
+  font-size: 32px;
+  font-weight: 600;
+  color: #333;
+}
+
+.section-more {
+  font-size: 26px;
+  color: #1677ff;
+}
+
+.mini-activity-card {
+  padding: 16px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.mini-activity-card:last-child {
+  border-bottom: none;
+}
+
+.mini-card-title {
+  font-size: 28px;
+  color: #333;
+  font-weight: 500;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.mini-card-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.mini-card-date {
+  font-size: 24px;
+  color: #999;
+}
+
+.mini-card-price {
+  font-size: 28px;
+  color: #ff4d4f;
+  font-weight: 600;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 40px 0;
+  color: #999;
+  font-size: 26px;
+}

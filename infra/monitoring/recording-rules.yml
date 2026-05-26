@@ -1,0 +1,50 @@
+groups:
+  - name: badminton-recording
+    interval: 30s
+    rules:
+      # === HTTP ===
+      - record: http:request_rate_5m
+        expr: sum(rate(http_requests_total[5m])) by (job, method, status)
+
+      - record: http:error_rate_5m
+        expr: |
+          sum(rate(http_requests_total{status=~"5.."}[5m])) by (job)
+          /
+          sum(rate(http_requests_total[5m])) by (job)
+
+      - record: http:latency_p50_5m
+        expr: histogram_quantile(0.50, sum(rate(http_request_duration_seconds_bucket[5m])) by (le, job))
+
+      - record: http:latency_p95_5m
+        expr: histogram_quantile(0.95, sum(rate(http_request_duration_seconds_bucket[5m])) by (le, job))
+
+      - record: http:latency_p99_5m
+        expr: histogram_quantile(0.99, sum(rate(http_request_duration_seconds_bucket[5m])) by (le, job))
+
+      # === Registration ===
+      - record: registration:rate_5m
+        expr: sum(rate(registration_total[5m])) by (result)
+
+      - record: registration:success_rate_5m
+        expr: |
+          sum(rate(registration_total{result="success"}[5m]))
+          /
+          sum(rate(registration_total[5m]))
+
+      # === Payment ===
+      - record: payment:callback_rate_5m
+        expr: sum(rate(payment_callback_total[5m])) by (result)
+
+      # === Wallet ===
+      - record: wallet:transaction_rate_5m
+        expr: sum(rate(wallet_transaction_total[5m])) by (type)
+
+      # === BullMQ ===
+      - record: bullmq:throughput_5m
+        expr: sum(rate(bullmq_job_completed_total[5m])) by (queue)
+
+      - record: bullmq:error_rate_5m
+        expr: |
+          sum(rate(bullmq_job_failed_total[5m])) by (queue)
+          /
+          (sum(rate(bullmq_job_completed_total[5m])) by (queue) + sum(rate(bullmq_job_failed_total[5m])) by (queue))

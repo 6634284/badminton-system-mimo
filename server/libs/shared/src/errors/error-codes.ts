@@ -1,0 +1,20 @@
+export enum ErrorCode {
+  SUCCESS = 0,
+
+  // 4xxxx - Client errors
+  PARAM_ERROR = 40001,
+  UNAUTHORIZED = 40101,
+  FORBIDDEN = 40301,
+  NOT_FOUND = 40401,
+  STATUS_CONFLICT = 40901,
+  RATE_LIMITED = 42901,
+
+  // 43xxx - Business errors
+  OUT_OF_SEATS = 43001,
+  INSUFFICIENT_BALANCE = 43002,
+  DUPLICATE_REGISTRATION = 43003,
+
+  // 5xxxx - Server errors
+  INTERNAL_ERROR = 50001,
+  DOWNSTREAM_UNAVAILABLE = 53001,
+}

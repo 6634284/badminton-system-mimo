@@ -1,0 +1,32 @@
+.coach-detail {
+  padding: 24rpx;
+  .hero {
+    display: flex; align-items: center; background: #fff; border-radius: 16rpx; padding: 32rpx; margin-bottom: 24rpx;
+    box-shadow: 0 2rpx 8rpx rgba(0,0,0,0.06);
+    .avatar-wrap { margin-right: 24rpx;
+      .avatar { width: 120rpx; height: 120rpx; border-radius: 50%; }
+      .avatar-ph { width: 120rpx; height: 120rpx; border-radius: 50%; background: #1677ff; color: #fff; display: flex; align-items: center; justify-content: center; font-size: 48rpx; }
+    }
+    .hero-info { flex: 1;
+      .name { font-size: 32rpx; font-weight: bold; display: block; }
+      .level { font-size: 24rpx; color: #666; display: block; margin-top: 4rpx; }
+      .price { font-size: 28rpx; color: #ff4d4f; font-weight: 500; display: block; margin-top: 8rpx; }
+    }
+  }
+  .card {
+    background: #fff; border-radius: 12rpx; padding: 24rpx; margin-bottom: 16rpx; box-shadow: 0 2rpx 8rpx rgba(0,0,0,0.06);
+    .card-title { font-size: 28rpx; font-weight: 500; display: block; margin-bottom: 12rpx; }
+    .card-body { font-size: 26rpx; color: #666; line-height: 1.6; }
+    .empty { text-align: center; padding: 40rpx; color: #999; }
+  }
+  .lesson-item {
+    display: flex; align-items: center; justify-content: space-between; padding: 16rpx 0; border-bottom: 1rpx solid #f0f0f0;
+    &:last-child { border-bottom: none; }
+    .lesson-info {
+      .lesson-name { font-size: 28rpx; display: block; }
+      .lesson-meta { font-size: 24rpx; color: #999; display: block; margin-top: 4rpx; }
+    }
+    .book-btn { background: #1677ff; color: #fff; padding: 10rpx 24rpx; border-radius: 8rpx; font-size: 24rpx; }
+  }
+  .loading { text-align: center; padding: 80rpx; color: #999; }
+}

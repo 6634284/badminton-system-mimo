@@ -1,0 +1,95 @@
+.activity-list {
+  padding: 24px;
+  background: #f5f5f5;
+  min-height: 100vh;
+}
+
+.page-title {
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 24px;
+  color: #333;
+}
+
+.loading, .empty-state {
+  text-align: center;
+  padding: 80px 0;
+  color: #999;
+  font-size: 28px;
+}
+
+.activity-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 24px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.card-title {
+  font-size: 32px;
+  font-weight: 600;
+  color: #333;
+  flex: 1;
+}
+
+.card-status {
+  font-size: 24px;
+  padding: 4px 12px;
+  border-radius: 8px;
+}
+
+.status-registering {
+  background: #e6f7ff;
+  color: #1677ff;
+}
+
+.status-full {
+  background: #fff7e6;
+  color: #fa8c16;
+}
+
+.status-published {
+  background: #f0f5ff;
+  color: #2f54eb;
+}
+
+.status-ongoing {
+  background: #f6ffed;
+  color: #52c41a;
+}
+
+.card-info {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.card-date, .card-time {
+  font-size: 26px;
+  color: #666;
+}
+
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-price {
+  font-size: 36px;
+  font-weight: bold;
+  color: #ff4d4f;
+}
+
+.card-seats {
+  font-size: 26px;
+  color: #999;
+}

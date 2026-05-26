@@ -1,0 +1,10 @@
+FROM node:22-alpine
+RUN corepack enable && corepack prepare pnpm@10.20.0 --activate
+WORKDIR /app
+COPY package.json pnpm-lock.yaml ./
+COPY prisma ./prisma/
+RUN pnpm install --frozen-lockfile && npx prisma generate
+COPY dist ./dist
+ENV NODE_ENV=production
+EXPOSE 3000
+CMD ["node", "dist/apps/client-api/apps/client-api/src/main.js"]

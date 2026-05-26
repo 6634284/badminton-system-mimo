@@ -1,0 +1,37 @@
+export default defineAppConfig({
+  pages: [
+    'pages/home/index',
+    'pages/login/index',
+    'pages/activities/list',
+    'pages/activities/detail',
+    'pages/wallet/index',
+    'pages/wallet/recharge',
+    'pages/profile/index',
+    'pages/mall/list',
+    'pages/mall/detail',
+    'pages/tournaments/list',
+    'pages/tournaments/detail',
+    'pages/coaches/list',
+    'pages/coaches/detail',
+    'pages/coupons/list',
+    'pages/notifications/list',
+    'pages/court-booking/index',
+    'pages/rankings/index',
+  ],
+  window: {
+    backgroundTextStyle: 'light',
+    navigationBarBackgroundColor: '#1677ff',
+    navigationBarTitleText: '羽毛球俱乐部',
+    navigationBarTextStyle: 'white',
+  },
+  tabBar: {
+    color: '#999',
+    selectedColor: '#1677ff',
+    list: [
+      { pagePath: 'pages/home/index', text: '首页' },
+      { pagePath: 'pages/activities/list', text: '活动' },
+      { pagePath: 'pages/wallet/index', text: '钱包' },
+      { pagePath: 'pages/profile/index', text: '我的' },
+    ],
+  },
+});

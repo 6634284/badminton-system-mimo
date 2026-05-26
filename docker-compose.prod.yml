@@ -1,0 +1,139 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: badminton-postgres
+    environment:
+      POSTGRES_USER: badminton
+      POSTGRES_PASSWORD: badminton
+      POSTGRES_DB: badminton
+    ports:
+      - "15432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U badminton"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  redis:
+    image: redis:7-alpine
+    container_name: badminton-redis
+    ports:
+      - "16380:6379"
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  admin-api:
+    image: badminton-server:latest
+    container_name: badminton-admin-api
+    command: node dist/apps/admin-api/src/main.js
+    ports:
+      - "3001:3000"
+    environment:
+      NODE_ENV: production
+      DATABASE_URL: postgresql://badminton:badminton@postgres:5432/badminton
+      REDIS_URL: redis://redis:6379
+      JWT_SECRET: badminton-jwt-secret-2026
+      JWT_REFRESH_SECRET: badminton-refresh-secret-2026
+      ENCRYPTION_KEY: 0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+
+  client-api:
+    image: badminton-server:latest
+    container_name: badminton-client-api
+    command: node dist/apps/client-api/src/main.js
+    ports:
+      - "3002:3000"
+    environment:
+      NODE_ENV: production
+      DATABASE_URL: postgresql://badminton:badminton@postgres:5432/badminton
+      REDIS_URL: redis://redis:6379
+      JWT_SECRET: badminton-jwt-secret-2026
+      JWT_REFRESH_SECRET: badminton-refresh-secret-2026
+      ENCRYPTION_KEY: 0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+
+  open-api:
+    image: badminton-server:latest
+    container_name: badminton-open-api
+    command: node dist/apps/open-api/src/main.js
+    ports:
+      - "3003:3000"
+    environment:
+      NODE_ENV: production
+      DATABASE_URL: postgresql://badminton:badminton@postgres:5432/badminton
+      REDIS_URL: redis://redis:6379
+      JWT_SECRET: badminton-jwt-secret-2026
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+
+  worker:
+    image: badminton-server:latest
+    container_name: badminton-worker
+    command: node dist/apps/worker/src/main.js
+    environment:
+      NODE_ENV: production
+      DATABASE_URL: postgresql://badminton:badminton@postgres:5432/badminton
+      REDIS_URL: redis://redis:6379
+      JWT_SECRET: badminton-jwt-secret-2026
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+
+  scheduler:
+    image: badminton-server:latest
+    container_name: badminton-scheduler
+    command: node dist/apps/scheduler/src/main.js
+    environment:
+      NODE_ENV: production
+      DATABASE_URL: postgresql://badminton:badminton@postgres:5432/badminton
+      REDIS_URL: redis://redis:6379
+      JWT_SECRET: badminton-jwt-secret-2026
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+
+  admin-web:
+    build:
+      context: ./admin-web
+      dockerfile: Dockerfile
+    container_name: badminton-admin-web
+    ports:
+      - "8090:80"
+    depends_on:
+      - admin-api
+
+  client-web:
+    build:
+      context: ./client-taro
+      dockerfile: Dockerfile
+    container_name: badminton-client-web
+    ports:
+      - "8081:80"
+    depends_on:
+      - client-api
+
+volumes:
+  postgres_data:
+  redis_data:

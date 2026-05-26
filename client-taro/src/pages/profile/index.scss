@@ -1,0 +1,74 @@
+.profile-page {
+  padding: 24px;
+  background: #f5f5f5;
+  min-height: 100vh;
+}
+
+.page-title {
+  font-size: 36px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 24px;
+  display: block;
+}
+
+.loading, .empty-state {
+  text-align: center;
+  padding: 80px 0;
+  color: #999;
+  font-size: 28px;
+}
+
+.reg-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 24px;
+  margin-bottom: 16px;
+}
+
+.reg-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.reg-id {
+  font-size: 28px;
+  color: #666;
+}
+
+.reg-status {
+  font-size: 26px;
+  font-weight: 600;
+}
+
+.reg-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.reg-amount {
+  font-size: 32px;
+  font-weight: bold;
+  color: #ff4d4f;
+}
+
+.reg-time {
+  font-size: 24px;
+  color: #999;
+}
+
+.reg-actions {
+  border-top: 1px solid #f0f0f0;
+  padding-top: 12px;
+  text-align: right;
+}
+
+.cancel-btn {
+  font-size: 26px;
+  color: #ff4d4f;
+  padding: 8px 16px;
+}

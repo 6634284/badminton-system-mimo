@@ -1,0 +1,11 @@
+node_modules/
+dist/
+.env
+.env.local
+*.log
+coverage/
+.DS_Store
+server/openapi/*.json
+admin-web/dist/
+client-taro/dist/
+client-taro/.taro/

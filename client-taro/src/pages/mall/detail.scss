@@ -1,0 +1,27 @@
+.product-detail {
+  .image-wrap {
+    width: 100%; height: 400rpx; background: #f5f5f5;
+    .product-img { width: 100%; height: 400rpx; }
+    .img-ph { width: 100%; height: 400rpx; display: flex; align-items: center; justify-content: center; color: #999; }
+  }
+  .info-card {
+    padding: 24rpx; background: #fff; margin-bottom: 16rpx;
+    .name { font-size: 32rpx; font-weight: bold; display: block; margin-bottom: 12rpx; }
+    .price { font-size: 36rpx; color: #ff4d4f; font-weight: bold; display: block; margin-bottom: 12rpx; }
+    .desc { font-size: 26rpx; color: #666; line-height: 1.6; }
+  }
+  .sku-card {
+    padding: 24rpx; background: #fff; margin-bottom: 16rpx;
+    .sku-title { font-size: 28rpx; font-weight: 500; display: block; margin-bottom: 12rpx; }
+    .sku-item { display: flex; align-items: center; justify-content: space-between; padding: 12rpx 0; border-bottom: 1rpx solid #f0f0f0;
+      .sku-spec { flex: 1; font-size: 26rpx; color: #333; }
+      .sku-price { font-size: 26rpx; color: #ff4d4f; margin: 0 16rpx; }
+      .sku-stock { font-size: 24rpx; color: #999; }
+    }
+  }
+  .action-bar {
+    position: fixed; bottom: 0; left: 0; right: 0; background: #fff; padding: 16rpx 24rpx; box-shadow: 0 -2rpx 8rpx rgba(0,0,0,0.06);
+    .add-cart-btn { background: #ff4d4f; color: #fff; text-align: center; padding: 20rpx; border-radius: 12rpx; font-size: 30rpx; }
+  }
+  .loading { text-align: center; padding: 80rpx; color: #999; }
+}

@@ -1,0 +1,16 @@
+.coupon-list {
+  padding: 24rpx;
+  .section { margin-bottom: 32rpx; .section-title { font-size: 30rpx; font-weight: bold; margin-bottom: 16rpx; display: block; } }
+  .coupon-card {
+    display: flex; background: #fff; border-radius: 12rpx; margin-bottom: 16rpx; overflow: hidden;
+    box-shadow: 0 2rpx 8rpx rgba(0,0,0,0.06);
+    .left { width: 200rpx; background: linear-gradient(135deg, #ff4d4f, #ff7875); color: #fff; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 24rpx;
+      .value { font-size: 36rpx; font-weight: bold; } .scope { font-size: 22rpx; margin-top: 8rpx; }
+    }
+    &.mine .left { background: linear-gradient(135deg, #999, #bbb); }
+    .right { flex: 1; padding: 24rpx; display: flex; flex-direction: column; justify-content: center;
+      .name { font-size: 28rpx; font-weight: 500; display: block; } .stock, .status { font-size: 22rpx; color: #999; margin-top: 4rpx; display: block; }
+      .claim-btn { margin-top: 12rpx; background: #ff4d4f; color: #fff; text-align: center; padding: 8rpx 0; border-radius: 8rpx; font-size: 24rpx; width: 120rpx; }
+    }
+  }
+}
